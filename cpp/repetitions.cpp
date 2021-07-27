@@ -10,18 +10,19 @@ int main() {
     cin >> str;
     
     // both are the same
-    // auto c = str.begin() , *c == *it
+    // auto c = str.begin() , *c == it
     // string::iterator it , auto it
     char c = *str.begin();
     int m_count = 0;
     int c_count = 0;
     
-    for ( string::iterator it=str.begin(); it!=str.end(); ++it ) {
-        if ( c == *it ) {
+    // for ( string::iterator it=str.begin(); it!=str.end(); ++it ) {
+    for ( auto& it : str ) {
+        if ( c == it ) {
             c_count += 1;
             m_count = max(c_count, m_count);
         } else {
-            c = *it;
+            c = it;
             // they already are the same
             c_count = 1;
         }
